@@ -75,3 +75,17 @@ openssl genpkey --algorithm EC --pkeyopt ec_paramgen_curve:P-384 --out EC-KEY.pe
 ```bash
 openssl ecparam -list_curves
 ```
+
+Конечно, вот перевод содержимого файла на русский язык:
+
+**Проверка параметров и ключей EC (Эллиптической кривой)**
+
+**Проверка файла параметров Эллиптической кривой (EC)**
+```
+openssl ecparam -in EC-PARAM.pem -text -noout
+```
+
+**Проверка файла закрытого ключа Эллиптической кривой (EC)**
+```
+openssl ec -in EC-KEY.pem -text -noout
+```
