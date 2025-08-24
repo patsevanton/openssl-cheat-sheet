@@ -56,27 +56,22 @@ openssl list-cipher-algorithms
 
 Создание файла параметров EC
 ```bash
-openssl_genpkey --genparam --algorithm EC --pkeyopt ec_paramgen_curve:secp384r1 --out EC-PARAM.pem
+openssl genpkey --genparam --algorithm EC --pkeyopt ec_paramgen_curve:secp384r1 --out EC-PARAM.pem
 ```
 
 Генерация ключей EC из файла параметров  
 ```bash
-openssl_genpkey --paramfile EC-PARAM.pem --out EC-KEY.pem
+openssl genpkey --paramfile EC-PARAM.pem --out EC-KEY.pem
 ```
 
 Прямая генерация ключей EC  
 ```bash
-openssl_genpkey --algorithm EC --pkeyopt ec_paramgen_curve:P-384 --out EC-KEY.pem
-```
-
-Просмотр поддерживаемых эллиптических кривых  
-```bash
-openssl_ecparam --list_curves
+openssl genpkey --algorithm EC --pkeyopt ec_paramgen_curve:P-384 --out EC-KEY.pem
 ```
 
 Рекомендуемые кривые: secp521r1, secp384r1, secp256k1 (идентичны P-521, P-384, P-256)
 
-Просмотр поддерживаемых кривых:
+Просмотр поддерживаемых эллиптических кривых  :
 ```bash
 openssl ecparam -list_curves
 ```
