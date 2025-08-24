@@ -53,15 +53,20 @@ openssl list-cipher-algorithms
 
 
 ### Ключи на эллиптических кривых (EC):
-- Генерация параметров:
-  ```bash
-  openssl genpkey -genparam -algorithm EC -pkeyopt ec_paramgen_curve:secp384r1 -out EC-PARAM.pem
-  ```
-  
-- Генерация ключей:
-  ```bash
-  openssl genpkey -paramfile EC-PARAM.pem -out EC-KEY.pem
-  ```
+
+Создание файла параметров EC  
+openssl_genpkey --genparam --algorithm EC --pkeyopt ec_paramgen_curve:secp384r1 --out EC-PARAM.pem
+
+Генерация ключей EC из файла параметров  
+openssl_genpkey --paramfile EC-PARAM.pem --out EC-KEY.pem
+
+Прямая генерация ключей EC  
+openssl_genpkey --algorithm EC --pkeyopt ec_paramgen_curve:P-384 --out EC-KEY.pem
+
+Просмотр поддерживаемых эллиптических кривых  
+openssl_ecparam --list_curves
+
+Рекомендуемые кривые: secp521r1, secp384r1, secp256k1 (идентичны P-521, P-384, P-256)
 
 - Просмотр поддерживаемых кривых:
   ```bash
