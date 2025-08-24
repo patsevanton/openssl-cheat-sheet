@@ -3,15 +3,15 @@
 ## Генерация RSA-ключей
 
 ### Базовые команды:
-- Генерация 2048-битного закрытого RSA-ключа:
-  ```bash
-  openssl genrsa -out KEY1.pem 2048
-  ```
+Генерация 2048-битного закрытого RSA-ключа:
+```bash
+openssl genrsa -out KEY1.pem 2048
+```
 
-- Генерация 4096-битного закрытого RSA-ключа с шифрованием AES128:
-  ```bash
-  openssl genrsa -out KEY2.pem -aes128 4096
-  ```
+Генерация 4096-битного закрытого RSA-ключа с шифрованием AES128:
+```bash
+openssl genrsa -out KEY2.pem -aes128 4096
+```
 
 ### Особенности:
 - Размер ключа всегда указывается последним аргументом
@@ -55,28 +55,28 @@ openssl list-cipher-algorithms
 ### Ключи на эллиптических кривых (EC):
 
 Создание файла параметров EC
-  ```bash
+```bash
 openssl_genpkey --genparam --algorithm EC --pkeyopt ec_paramgen_curve:secp384r1 --out EC-PARAM.pem
-  ```
+```
 
 Генерация ключей EC из файла параметров  
-  ```bash
+```bash
 openssl_genpkey --paramfile EC-PARAM.pem --out EC-KEY.pem
-  ```
+```
 
 Прямая генерация ключей EC  
-  ```bash
+```bash
 openssl_genpkey --algorithm EC --pkeyopt ec_paramgen_curve:P-384 --out EC-KEY.pem
-  ```
+```
 
 Просмотр поддерживаемых эллиптических кривых  
-  ```bash
+```bash
 openssl_ecparam --list_curves
-  ```
+```
 
 Рекомендуемые кривые: secp521r1, secp384r1, secp256k1 (идентичны P-521, P-384, P-256)
 
-- Просмотр поддерживаемых кривых:
-  ```bash
-  openssl ecparam -list_curves
-  ```
+Просмотр поддерживаемых кривых:
+```bash
+openssl ecparam -list_curves
+```
