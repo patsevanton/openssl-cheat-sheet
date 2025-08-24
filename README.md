@@ -51,16 +51,6 @@ openssl list-cipher-algorithms
 
 ## Генерация других типов ключей
 
-### DSA-ключи:
-- Генерация параметров:
-  ```bash
-  openssl dsaparam -out DSA-PARAM.pem 1024
-  ```
-  
-- Генерация ключей:
-  ```bash
-  openssl gendsa -out DSA-KEY.pem DSA-PARAM.pem
-  ```
 
 ### Ключи на эллиптических кривых (EC):
 - Генерация параметров:
